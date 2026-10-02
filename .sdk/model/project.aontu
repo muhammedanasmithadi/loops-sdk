@@ -23,3 +23,8 @@
 # A published package name that does not follow the derivation:
 #
 #   main: kit: target: ts: publish: registry: package: '@scope/name'
+
+# Authorship of the generated packages. The author name defaults to the
+# publisher, so declare it here: this is your open-source work.
+main: kit: author: name: 'Muhammed Anas'
+main: kit: author: url: 'https://github.com/muhammedanasmithadi'
