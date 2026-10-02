@@ -2191,9 +2191,9 @@ class Config {
             },
             "name": "email_message_guardian",
             "op": {
-                "list": {
+                "load": {
                     "input": "data",
-                    "name": "list",
+                    "name": "load",
                     "points": [
                         {
                             "kind": "http",

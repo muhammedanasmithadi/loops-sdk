@@ -1288,7 +1288,7 @@ declare class Config {
             };
             name: string;
             op: {
-                list: {
+                load: {
                     input: string;
                     name: string;
                     points: {

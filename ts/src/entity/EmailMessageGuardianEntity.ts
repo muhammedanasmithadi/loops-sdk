@@ -16,7 +16,7 @@ import type {
 
 import type {
   EmailMessageGuardian,
-  EmailMessageGuardianListMatch,
+  EmailMessageGuardianLoadMatch,
 } from '../LoopsTypes'
 
 class EmailMessageGuardianEntity extends LoopsEntityBase<EmailMessageGuardian> {
@@ -35,8 +35,7 @@ class EmailMessageGuardianEntity extends LoopsEntityBase<EmailMessageGuardian> {
 
 
 
-
-  async list(this: any, reqmatch?: EmailMessageGuardianListMatch, ctrl?: Control): Promise<EmailMessageGuardianEntity[]> {
+  async load(this: any, reqmatch?: EmailMessageGuardianLoadMatch, ctrl?: Control): Promise<EmailMessageGuardianEntity> {
 
     const utility = this._utility
 
@@ -56,7 +55,7 @@ class EmailMessageGuardianEntity extends LoopsEntityBase<EmailMessageGuardian> {
     let fres: Promise<any> | undefined = undefined
 
     let ctx: Context = makeContext({
-      opname: 'list',
+      opname: 'load',
       ctrl,
       match: this._match,
       data: this._data,
@@ -122,9 +121,15 @@ class EmailMessageGuardianEntity extends LoopsEntityBase<EmailMessageGuardian> {
         if (null != ctx.result.resmatch) {
           this._match = ctx.result.resmatch
         }
+
+        if (null != ctx.result.resdata) {
+          this._data = ctx.result.resdata
+        }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
       // What a hook throws here must not escape the cleaning below.
@@ -144,11 +149,12 @@ class EmailMessageGuardianEntity extends LoopsEntityBase<EmailMessageGuardian> {
       }
       else {
         // Off-happy-path (throw disabled): typed as any so the method's
-        // Promise<EmailMessageGuardian[]> return stays clean under strict null checks.
+        // Promise<EmailMessageGuardian> return stays clean under strict null checks.
         return undefined as any
       }
     }
   }
+
 
 
 

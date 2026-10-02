@@ -1647,12 +1647,12 @@ const email_message_guardian = client.EmailMessageGuardian()
 
 ### Operations
 
-#### `list(match: object, ctrl?: object)`
+#### `load(match: object, ctrl?: object)`
 
-List entities matching the given criteria. Returns an array.
+Load a single entity matching the given criteria.
 
 ```ts
-const results = await client.EmailMessageGuardian().list({ id: "example" })
+const result = await client.EmailMessageGuardian().load({ id: 'email_message_guardian_id' })
 ```
 
 ### Common Methods

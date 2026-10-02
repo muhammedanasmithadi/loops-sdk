@@ -56,24 +56,25 @@ const utility_1 = require("../../utility");
     });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.LOOPS_TEST_LIVE;
-        for (const op of ['list']) {
+        for (const op of ['load']) {
             if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'email_message_guardian.' + op, live))
                 return;
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "errors": { "a": true, "h": "Errors", "n": "errors", "r": true, "sh": "Validation errors.", "t": "`$ARRAY`", "key$": "errors", "index$": 0 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 1 }, "warnings": { "a": true, "h": "Warnings", "n": "warnings", "r": true, "sh": "Validation warnings.", "t": "`$ARRAY`", "key$": "warnings", "index$": 2 } }, "id": { "field": "id", "name": "id" }, "name": "email_message_guardian", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /v1/email-messages/{emailMessageId}/guardian", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "emailMessageId", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/v1/email-messages/{emailMessageId}/guardian", "q": { "exist": ["id"] }, "r": { "param": { "emailMessageId": "id" } }, "s": [{ "lit": "v1" }, { "lit": "email-messages" }, { "var": "id" }, { "lit": "guardian" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "email_message_guardian", "name__orig": "email_message_guardian", "Name": "EmailMessageGuardian", "name_": "email_message_guardian", "name-": "email-message-guardian", "NAME": "EMAIL_MESSAGE_GUARDIAN", "index$": 17 }, { "active": true, "entity": "email_message_guardian", "key$": "BasicEmailMessageGuardianFlow", "kind": "basic", "name": "BasicEmailMessageGuardianFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": { "email_message_id": "email_message01" }, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "email_message_guardian_ref01" } }] }] }, 'EmailMessageGuardian', { "GET /v1/email-messages/{emailMessageId}/guardian": { "protocol": "http", "parameters": [{ "name": "emailMessageId", "in": "path", "required": true, "description": "The ID of the email message.", "schema": { "type": "string", "examples": ["cle5f7g9h1i3j5k7l9m1n3p5"] }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "errors": { "a": true, "h": "Errors", "n": "errors", "r": true, "sh": "Validation errors.", "t": "`$ARRAY`", "key$": "errors", "index$": 0 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 1 }, "warnings": { "a": true, "h": "Warnings", "n": "warnings", "r": true, "sh": "Validation warnings.", "t": "`$ARRAY`", "key$": "warnings", "index$": 2 } }, "id": { "field": "id", "name": "id" }, "name": "email_message_guardian", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /v1/email-messages/{emailMessageId}/guardian", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "emailMessageId", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/v1/email-messages/{emailMessageId}/guardian", "q": { "exist": ["id"] }, "r": { "param": { "emailMessageId": "id" } }, "s": [{ "lit": "v1" }, { "lit": "email-messages" }, { "var": "id" }, { "lit": "guardian" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "email_message_guardian", "name__orig": "email_message_guardian", "Name": "EmailMessageGuardian", "name_": "email_message_guardian", "name-": "email-message-guardian", "NAME": "EMAIL_MESSAGE_GUARDIAN", "index$": 17 }, { "active": true, "entity": "email_message_guardian", "key$": "BasicEmailMessageGuardianFlow", "kind": "basic", "name": "BasicEmailMessageGuardianFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "email_message_guardian_ref01", "srcdatavar": "email_message_guardian_ref01_data", "suffix": "_dt0" }, "m": { "id": "email_message_guardian01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-email_message_guardian_ref01" } }] }] }, 'EmailMessageGuardian', { "GET /v1/email-messages/{emailMessageId}/guardian": { "protocol": "http", "parameters": [{ "name": "emailMessageId", "in": "path", "required": true, "description": "The ID of the email message.", "schema": { "type": "string", "examples": ["cle5f7g9h1i3j5k7l9m1n3p5"] }, "index$": 0 }] } });
         }
         const client = setup.client;
         const struct = setup.struct;
         const isempty = struct.isempty;
         const select = struct.select;
         let email_message_guardian_ref01_data = Object.values(setup.data.existing.email_message_guardian)[0];
-        // LIST
+        // LOAD
         const email_message_guardian_ref01_ent = client.EmailMessageGuardian();
-        const email_message_guardian_ref01_match = {};
-        email_message_guardian_ref01_match['email_message_id'] = setup.idmap['email_message01'];
-        const email_message_guardian_ref01_list = (await email_message_guardian_ref01_ent.list(email_message_guardian_ref01_match)).map((e) => e.data());
+        const email_message_guardian_ref01_match_dt0 = {};
+        email_message_guardian_ref01_match_dt0.id = email_message_guardian_ref01_data.id;
+        const email_message_guardian_ref01_data_dt0 = (await email_message_guardian_ref01_ent.load(email_message_guardian_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(email_message_guardian_ref01_data_dt0.id === email_message_guardian_ref01_data.id);
     });
 });
 function basicSetup(extra) {
@@ -90,7 +91,7 @@ function basicSetup(extra) {
     const struct = client.utility().struct;
     const merge = struct.merge;
     const transform = struct.transform;
-    let idmap = transform(['email_message_guardian01', 'email_message_guardian02', 'email_message_guardian03', 'email_message01'], {
+    let idmap = transform(['email_message_guardian01', 'email_message_guardian02', 'email_message_guardian03'], {
         '`$PACK`': ['', {
                 '`$KEY`': '`$COPY`',
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']

@@ -109,7 +109,7 @@ The API exposes 36 entities:
 | **CreateUpload** | The CreateUpload entity (create). | `/v1/uploads` |
 | **CreateWorkflowNode** | The CreateWorkflowNode entity (create). | `/v1/workflows/{workflowId}/nodes` |
 | **EmailMessage** | The EmailMessage entity (create, load). | `/v1/email-messages/{emailMessageId}` |
-| **EmailMessageGuardian** | The EmailMessageGuardian entity (list). | `/v1/email-messages/{emailMessageId}/guardian` |
+| **EmailMessageGuardian** | The EmailMessageGuardian entity (load). | `/v1/email-messages/{emailMessageId}/guardian` |
 | **EmailMessagePreview** | The EmailMessagePreview entity (create). | `/v1/email-messages/{emailMessageId}/preview` |
 | **EmailMetric** | The EmailMetric entity (load). | `/v1/workflows/{workflowId}/nodes/{nodeId}/metrics` |
 | **EventPattern** | The EventPattern entity (list, load). | `/v1/event-patterns` |

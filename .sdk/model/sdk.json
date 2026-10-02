@@ -2498,9 +2498,9 @@
           },
           "name": "email_message_guardian",
           "op": {
-            "list": {
+            "load": {
               "input": "data",
-              "name": "list",
+              "name": "load",
               "points": [
                 {
                   "a": true,
@@ -6724,17 +6724,21 @@
             {
               "a": true,
               "d": {},
-              "i": {},
-              "m": {
-                "email_message_id": "email_message01"
+              "i": {
+                "ref": "email_message_guardian_ref01",
+                "srcdatavar": "email_message_guardian_ref01_data",
+                "suffix": "_dt0"
               },
-              "o": "list",
+              "m": {
+                "id": "email_message_guardian01"
+              },
+              "o": "load",
               "s": [],
               "v": [
                 {
-                  "apply": "ItemExists",
+                  "apply": "TextFieldMark",
                   "def": {
-                    "ref": "email_message_guardian_ref01"
+                    "mark": "Mark01-email_message_guardian_ref01"
                   }
                 }
               ]

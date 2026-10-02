@@ -1052,7 +1052,7 @@ const PLAN = [
     {
         "entity": "email_message_guardian",
         "accessor": "EmailMessageGuardian",
-        "op": "list",
+        "op": "load",
         "method": "GET",
         "path": "/v1/email-messages/{emailMessageId}/guardian",
         "args": [

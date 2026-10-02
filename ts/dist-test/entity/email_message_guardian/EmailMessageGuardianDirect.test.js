@@ -21,21 +21,20 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)('function' === typeof sdk.direct);
         (0, node_assert_1.default)('function' === typeof sdk.prepare);
     });
-    (0, node_test_1.test)('direct-list-email_message_guardian', async (t) => {
+    (0, node_test_1.test)('direct-load-email_message_guardian', async (t) => {
         if (liveScenariosActive()) {
             t.skip('Covered by live operation scenarios');
             return;
         }
-        const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }]);
-        if ((0, utility_1.maybeSkipControl)(t, 'direct', 'direct-list-email_message_guardian', setup.live))
+        const setup = directSetup({ id: 'direct01' });
+        if ((0, utility_1.maybeSkipControl)(t, 'direct', 'direct-load-email_message_guardian', setup.live))
             return;
-        if ((0, utility_1.skipIfMissingIds)(t, setup, ["email_message_guardian01"]))
+        if ((0, utility_1.skipIfMissingIds)(t, setup, ["id01"]))
             return;
         const { client, calls } = setup;
         const params = {};
         const query = {};
         if (setup.live) {
-            params.id = setup.idmap['email_message_guardian01'];
         }
         else {
             params.id = 'direct01';
@@ -57,15 +56,13 @@ const utility_1 = require("../../utility");
             // could not pass against any real API, including this project's own.
             (0, node_assert_1.default)(result.ok === true, 'Live request failed: HTTP ' + result.status);
             (0, node_assert_1.default)(result.status >= 200 && result.status < 300);
-            (0, node_assert_1.default)(Array.isArray(unwrapListData(result.data)), 'Expected live list response');
+            (0, node_assert_1.default)(null != result.data);
         }
         else {
             (0, node_assert_1.default)(result.ok === true);
             (0, node_assert_1.default)(result.status === 200);
             (0, node_assert_1.default)(null != result.data);
-            const listArr = unwrapListData(result.data);
-            (0, node_assert_1.default)(Array.isArray(listArr));
-            (0, node_assert_1.default)(listArr.length === 2);
+            (0, node_assert_1.default)(result.data.id === 'direct01');
             (0, node_assert_1.default)(calls.length === 1);
             (0, node_assert_1.default)(calls[0].init.method === 'GET');
             (0, node_assert_1.default)(calls[0].url.includes('direct01'));

@@ -17,10 +17,7 @@ vendor OpenAPI spec.
 
 - `npm run generate`: pass. 37 entities emitted.
 - `npx voxgig-sdkgen doctor`: exit 0, `.sdk matches the scaffold`.
-- `ts` suite: 380 tests, 378 pass, 1 fail, 1 skipped.
-- Failing: `email_message_guardian.list GET
-  /v1/email-messages/{emailMessageId}/guardian`: `list read 0 records
-  where the definition example holds 2` (`test/definition.test.ts`).
+- `ts` suite: 380 tests, 379 pass, 0 fail, 1 skipped.
 - License: MIT present at repo root.
 
 ## Findings
@@ -80,12 +77,14 @@ vendor OpenAPI spec.
 7. Generator notes. OpenAPI 3.1.0 processes with no version warning, though
    the docs name OpenAPI 3 and Swagger 2. Two `require-missing` warnings
    appear at generate (`ReadmeFeatures_ts`, `AgentGuide_ts`). They look
-   benign but nothing explains them. The guardian test failure traces to a
-   classification error: `GET .../guardian` returns a singleton status
-   object with `errors` and `warnings`, yet the model types it as `list`.
-   The fixture seeds three records, the example holds two, the mock serves
-   none, and the assertion fails 0 vs 2. Type singleton sub-resources as
-   `load` and the suite goes green.
+   benign but nothing explains them. One classification error surfaced in
+   the first suite run and is fixed in this repo: `GET .../guardian`
+   returns a singleton status object with `errors` and `warnings`, yet the
+   model first typed it as `list`, so the mock served 0 records against an
+   example holding 2. A guide override in `.sdk/model/guide/guide.aontu`
+   retypes it as `load` (`op: list: active: *false`, `op: load: method:
+   *GET`), following ADR-002, and the suite passes since. Upstream could
+   type singleton sub-resources as `load` by default.
 
 ## Recommendations
 

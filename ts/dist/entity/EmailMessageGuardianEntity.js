@@ -12,14 +12,14 @@ class EmailMessageGuardianEntity extends LoopsEntityBase_1.LoopsEntityBase {
     make() {
         return new EmailMessageGuardianEntity(this._client, this.entopts());
     }
-    async list(reqmatch, ctrl) {
+    async load(reqmatch, ctrl) {
         const utility = this._utility;
         const { makeContext, done, 
         // The registry name is `makeError`; `error` is the local alias.
         makeError: error, featureHook, makePoint, makeRequest, makeResponse, makeResult, makeSpec, } = utility;
         let fres = undefined;
         let ctx = makeContext({
-            opname: 'list',
+            opname: 'load',
             ctrl,
             match: this._match,
             data: this._data,
@@ -74,8 +74,12 @@ class EmailMessageGuardianEntity extends LoopsEntityBase_1.LoopsEntityBase {
                 if (null != ctx.result.resmatch) {
                     this._match = ctx.result.resmatch;
                 }
+                if (null != ctx.result.resdata) {
+                    this._data = ctx.result.resdata;
+                }
             }
-            return done(ctx);
+            const out = done(ctx);
+            return (ctx.result && ctx.result.ok) ? this : out;
         }
         catch (err) {
             // What a hook throws here must not escape the cleaning below.
@@ -94,7 +98,7 @@ class EmailMessageGuardianEntity extends LoopsEntityBase_1.LoopsEntityBase {
             }
             else {
                 // Off-happy-path (throw disabled): typed as any so the method's
-                // Promise<EmailMessageGuardian[]> return stays clean under strict null checks.
+                // Promise<EmailMessageGuardian> return stays clean under strict null checks.
                 return undefined;
             }
         }

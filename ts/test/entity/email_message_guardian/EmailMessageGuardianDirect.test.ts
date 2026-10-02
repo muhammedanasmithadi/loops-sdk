@@ -36,17 +36,17 @@ describe('EmailMessageGuardianDirect', async () => {
   })
 
 
-  test('direct-list-email_message_guardian', async (t: any) => {
+  test('direct-load-email_message_guardian', async (t: any) => {
     if (liveScenariosActive()) { t.skip('Covered by live operation scenarios'); return }
-    const setup = directSetup([{ id: 'direct01' }, { id: 'direct02' }])
-    if (maybeSkipControl(t, 'direct', 'direct-list-email_message_guardian', setup.live)) return
-    if (skipIfMissingIds(t, setup, ["email_message_guardian01"])) return
+    const setup = directSetup({ id: 'direct01' })
+    if (maybeSkipControl(t, 'direct', 'direct-load-email_message_guardian', setup.live)) return
+    if (skipIfMissingIds(t, setup, ["id01"])) return
     const { client, calls } = setup
 
     const params: any = {}
     const query: any = {}
     if (setup.live) {
-      params.id = setup.idmap['email_message_guardian01']
+
     } else {
       params.id = 'direct01'
     }
@@ -70,14 +70,12 @@ describe('EmailMessageGuardianDirect', async () => {
       assert(result.ok === true,
         'Live request failed: HTTP ' + result.status)
       assert(result.status >= 200 && result.status < 300)
-      assert(Array.isArray(unwrapListData(result.data)), 'Expected live list response')
+      assert(null != result.data)
     } else {
       assert(result.ok === true)
       assert(result.status === 200)
       assert(null != result.data)
-      const listArr = unwrapListData(result.data)
-      assert(Array.isArray(listArr))
-      assert(listArr!.length === 2)
+      assert(result.data.id === 'direct01')
       assert(calls.length === 1)
       assert(calls[0].init.method === 'GET')
       assert(calls[0].url.includes('direct01'))

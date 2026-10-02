@@ -309,7 +309,7 @@ export interface EmailMessageGuardian {
   warnings: any[]
 }
 
-export interface EmailMessageGuardianListMatch {
+export interface EmailMessageGuardianLoadMatch {
   id: string
 }
 

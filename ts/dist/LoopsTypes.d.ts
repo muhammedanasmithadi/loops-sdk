@@ -255,7 +255,7 @@ export interface EmailMessageGuardian {
     id?: string;
     warnings: any[];
 }
-export interface EmailMessageGuardianListMatch {
+export interface EmailMessageGuardianLoadMatch {
     id: string;
 }
 export interface EmailMessagePreview {

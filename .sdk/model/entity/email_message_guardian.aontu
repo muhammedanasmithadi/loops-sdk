@@ -34,8 +34,8 @@ main: kit: entity: email_message_guardian: {
 
   name: "email_message_guardian"
   op: {
-    list: {
-      name: "list"
+    load: {
+      name: "load"
       points: [
         {
           co: {

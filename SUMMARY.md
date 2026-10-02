@@ -200,7 +200,7 @@ Key fields to recognise:
 
 Results: Successful.
 
-SDK operations: `list`.
+SDK operations: `load`.
 
 Key fields to recognise:
 
@@ -469,7 +469,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | CreateWorkflowNode | `create` | `POST /v1/workflows/{workflowId}/nodes` | Required |
 | EmailMessage | `create` | `POST /v1/email-messages/{emailMessageId}` | Required |
 | EmailMessage | `load` | `GET /v1/email-messages/{emailMessageId}` | Required |
-| EmailMessageGuardian | `list` | `GET /v1/email-messages/{emailMessageId}/guardian` | Required |
+| EmailMessageGuardian | `load` | `GET /v1/email-messages/{emailMessageId}/guardian` | Required |
 | EmailMessagePreview | `create` | `POST /v1/email-messages/{emailMessageId}/preview` | Required |
 | EmailMetric | `load` | `GET /v1/workflows/{workflowId}/nodes/{nodeId}/metrics` | Required |
 | EmailMetric | `load` | `GET /v1/campaigns/{campaignId}/metrics` | Required |

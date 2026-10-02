@@ -579,7 +579,7 @@ API path: `/v1/email-messages/{emailMessageId}`
 | `id` |  |
 | `warnings` | Validation warnings. |
 
-Operations: list.
+Operations: load.
 
 API path: `/v1/email-messages/{emailMessageId}/guardian`
 
@@ -1410,7 +1410,7 @@ Create an instance: `const email_message_guardian = client.EmailMessageGuardian(
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
@@ -1420,10 +1420,10 @@ Create an instance: `const email_message_guardian = client.EmailMessageGuardian(
 | `id` | `string` |  |
 | `warnings` | `any[]` | Validation warnings. |
 
-#### Example: List
+#### Example: Load
 
 ```ts
-const email_message_guardians = await client.EmailMessageGuardian().list({ id: "example" })
+const email_message_guardian = await client.EmailMessageGuardian().load({ id: 'email_message_guardian_id' })
 ```
 
 
