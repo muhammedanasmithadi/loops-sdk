@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "update_component": {
+      "UPDATE_COMPONENT00": {
+        "id": "UPDATE_COMPONENT00",
+        "lmx": "s1f",
+        "name": "s20"
+      },
+      "UPDATE_COMPONENT01": {
+        "id": "UPDATE_COMPONENT01",
+        "lmx": "s3d",
+        "name": "s3e"
+      },
+      "UPDATE_COMPONENT02": {
+        "id": "UPDATE_COMPONENT02",
+        "lmx": "s5b",
+        "name": "s5c"
+      }
+    }
+  },
+  "new": {
+    "update_component": {
+      "update_component_ref01": {
+        "lmx": "s79",
+        "name": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/components/{componentId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

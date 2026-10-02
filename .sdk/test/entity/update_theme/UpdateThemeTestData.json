@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "update_theme": {
+      "UPDATE_THEME00": {
+        "id": "UPDATE_THEME00",
+        "name": "s1f",
+        "styles": {}
+      },
+      "UPDATE_THEME01": {
+        "id": "UPDATE_THEME01",
+        "name": "s3d",
+        "styles": {}
+      },
+      "UPDATE_THEME02": {
+        "id": "UPDATE_THEME02",
+        "name": "s5b",
+        "styles": {}
+      }
+    }
+  },
+  "new": {
+    "update_theme": {
+      "update_theme_ref01": {
+        "name": "s79",
+        "styles": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/themes/{themeId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

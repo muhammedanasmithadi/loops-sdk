@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "contact_success": {
+      "CONTACT_SUCCESS00": {
+        "id": "CONTACT_SUCCESS00",
+        "success": false
+      },
+      "CONTACT_SUCCESS01": {
+        "id": "CONTACT_SUCCESS01",
+        "success": false
+      },
+      "CONTACT_SUCCESS02": {
+        "id": "CONTACT_SUCCESS02",
+        "success": false
+      }
+    }
+  },
+  "new": {
+    "contact_success": {
+      "contact_success_ref01": {
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/contacts/create": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /v1/contacts/update": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
