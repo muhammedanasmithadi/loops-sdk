@@ -12,6 +12,11 @@ vendor OpenAPI spec.
   ./loops-sdk -t ts -f test` on Node 24.
 - Auth: `securitySchemes.apiKey = {type: http, scheme: bearer}`,
   server `https://app.loops.so/api`.
+- Author: declared in `.sdk/model/project.aontu` as Muhammed Anas, so the
+  generated manifests name you. The root `LICENSE` still names Voxgig:
+  the generator hardcodes the holder to its `PUBLISHER` constant with no
+  model lever, which sits uneasily with the brief that you retain
+  copyright. Left as generated and flagged below instead of hand-edited.
 
 ## Results
 
@@ -99,8 +104,10 @@ vendor OpenAPI spec.
 - Rename the security scheme to `bearerAuth` or document bearer usage at
   the top of the reference.
 - Generator: warn once when the spec is 3.1.x vs 3.0, explain the two
-  `require-missing` lines or silence them, and type singleton sub-resources as
-  `load` so the default suite passes on first generate.
+  `require-missing` lines or silence them, type singleton sub-resources as
+  `load`, and either derive the `LICENSE` holder from `main.kit.author` or
+  document why the publisher holds it when the contributor retains
+  copyright.
 
 ## Stopped short
 

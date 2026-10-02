@@ -39,8 +39,8 @@
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
   "author": {
-    "name": "Voxgig",
-    "url": "https://voxgig.com"
+    "name": "Muhammed Anas",
+    "url": "https://github.com/muhammedanasmithadi"
   },
   "license": "MIT",
   "dependencies": {},

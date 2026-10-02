@@ -1,13 +1,22 @@
 {
+  "NAME": "LOOPS",
+  "Name": "Loops",
   "def": "loops.json",
   "main": {
+    "api": {
+      "entity": {},
+      "guide": {}
+    },
+    "custom": {
+      "plurals": {}
+    },
     "def": {
       "desc": ""
     },
     "kit": {
       "author": {
-        "name": "",
-        "url": ""
+        "name": "Muhammed Anas",
+        "url": "https://github.com/muhammedanasmithadi"
       },
       "config": {
         "docs_order": [
@@ -7534,5 +7543,8 @@
     }
   },
   "name": "loops",
+  "name-": "loops",
+  "name_": "loops",
+  "name__orig": "loops",
   "origin": "voxgig-sdk"
 }
