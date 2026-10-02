@@ -15,7 +15,7 @@ vendor OpenAPI spec.
 
 ## Results
 
-- `npm run generate`: pass. 37 entities emitted.
+- `npm run generate`: pass. 36 entities emitted.
 - `npx voxgig-sdkgen doctor`: exit 0, `.sdk matches the scaffold`.
 - `ts` suite: 380 tests, 379 pass, 0 fail, 1 skipped.
 - License: MIT present at repo root.
@@ -99,9 +99,8 @@ vendor OpenAPI spec.
 - Rename the security scheme to `bearerAuth` or document bearer usage at
   the top of the reference.
 - Generator: warn once when the spec is 3.1.x vs 3.0, explain the two
-  `require-missing` lines or silence them, type singleton sub-resources as
-  `load`, and seed guardian-list fixtures so the default suite passes on
-  first generate.
+  `require-missing` lines or silence them, and type singleton sub-resources as
+  `load` so the default suite passes on first generate.
 
 ## Stopped short
 
