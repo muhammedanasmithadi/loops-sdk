@@ -4,5 +4,16 @@
 
 @"./base-guide.aontu"
 
+# Guardian is a singleton status object (errors, warnings) for one email
+# message, not a collection: type its GET as load, not list.
+guide: {
+  entity: email_message_guardian: {
+    path: "/v1/email-messages/{emailMessageId}/guardian": {
+      op: list: active: *false
+      op: load: method: *GET
+    }
+  }
+}
+
 
 
